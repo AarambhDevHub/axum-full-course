@@ -1,0 +1,139 @@
+[workspace]
+resolver = "2"
+# The workspace contains only the modules whose videos are already published
+# on YouTube. As each new module video goes live, uncomment its line below and
+# commit: `cargo run -p module-NN-name` then works for that module too.
+members = [
+    "module-01-intro",
+    # "module-02-rust-http-essentials",
+    # "module-03-handlers-responses",
+    # "module-04-routing",
+    # "module-05-extractors",
+    # "module-06-responses",
+    # "module-07-state",
+    # "module-08-errors",
+    # "module-09-validation",
+    # "module-10-tower-basics",
+    # "module-11-middleware",
+    # "module-12-tower-http",
+    # "module-13-static-html",
+    # "module-14-sqlx-postgres",
+    # "module-15-architecture",
+    # "module-16-orms-databases",
+    # "module-17-caching",
+    # "module-18-rest-design",
+    # "module-19-passwords",
+    # "module-20-jwt",
+    # "module-21-sessions",
+    # "module-22-authorization",
+    # "module-23-hardening",
+    # "module-24-websockets",
+    # "module-25-sse",
+    # "module-26-streaming",
+    # "module-27-uploads",
+    # "module-28-resumable",
+    # "module-29-range-downloads",
+    # "module-30-media",
+    # "module-31-background-jobs",
+    # "module-32-http-clients",
+    # "module-33-openapi",
+    # "module-34-graphql",
+    # "module-35-grpc",
+    # "module-36-testing",
+    # "module-37-observability",
+    # "module-38-config",
+    # "module-39-async-debugging",
+    # "module-40-performance",
+    # "module-41-serve",
+    # "module-42-tls",
+    # "module-43-docker",
+    # "module-44-internals",
+]
+
+# Every crate in this workspace compiles against one shared, pinned set of
+# dependencies. That is the whole point: a learner can be sure that today's
+# axum version is the one the course was written and verified with, no matter
+# when they clone the repository.
+#
+# Keep each pin on its own line with a comment that says why the course needs
+# it. Add new pins only when a module actually uses them.
+[workspace.dependencies]
+# --- The Axum stack, pinned to the verified axum v0.8.9 release set (2026). ---
+# The web framework this course is about. Path syntax is `/{id}` and
+# `/{*rest}`; handlers and services must be `Sync`. MSRV is Rust 1.80.
+axum = "0.8.9"
+# The async runtime. Axum is built on Tokio: `#[tokio::main]`, TcpListener,
+# spawn, channels and timers all come from here.
+tokio = { version = "1.54", features = ["full"] }
+# Serialization. "derive" gives structs/generics `#[derive(Serialize,
+# Deserialize)]`, which every JSON, Form and Query lesson depends on.
+serde = { version = "1", features = ["derive"] }
+# JSON reader/writer used by `axum::Json`, tests, and the course demos.
+serde_json = "1"
+# --- Error handling and service internals (module 08 onward) ---
+# Structured error enums via #[derive(Error)] — the course's AppError spine.
+thiserror = "2"
+# Ergonomic `anyhow::Result` + context for "just fail fast" code paths.
+anyhow = "1"
+# Extra extractors/responses beyond core axum. Module 08 uses the
+# `with-rejection` feature to customize extractor rejections; module 04 uses
+# `routing` (route_with_tsr), module 05/09 use `typed-header` and `cached`.
+axum-extra = { version = "0.12", features = ["with-rejection", "routing", "typed-header", "cached"] }
+# Tower primitives the course uses directly (Timeout/Limit for error demos,
+# BoxService...). "util" brings ServiceBuilder helpers; "limit" and "load-shed"
+# are the concurrency/rate layers module 10 demonstrates.
+tower = { version = "0.5", features = ["timeout", "util", "limit", "load-shed"] }
+# Stream combinators (`stream::unfold`, `StreamExt`) for streaming response bodies.
+# Already in the dependency tree via axum; pinned here so modules use one version.
+futures-util = "0.3"
+# Ready-made tower middleware. Module 08 uses `catch-panic` to turn a panic
+# into a response; later modules enable more features per crate.
+tower-http = "0.7"
+# --- Validation (module 09) ---
+# Declarative validation rules on structs; the course's first choice.
+validator = { version = "0.21", features = ["derive"] }
+# Alternative validation crate (module 09 shows both side by side).
+garde = { version = "0.23", features = ["derive", "email"] }
+# --- Logging (module 12 onward) ---
+# Structured logging facade; TraceLayer emits tracing events.
+tracing = "0.1"
+# Prints tracing events. `env-filter` reads RUST_LOG (module 37 goes deeper).
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+# --- Templates and assets (module 13) ---
+# Compile-time checked Jinja-like templates.
+askama = "0.16"
+# Runtime Jinja2-compatible templates (templates can change without recompiling).
+minijinja = { version = "3", features = ["serde"] }
+# HTML as Rust macros; `axum` feature makes `Markup` an IntoResponse.
+maud = { version = "0.27", features = ["axum"] }
+# Embed files into the binary at compile time.
+rust-embed = "8"
+# File extension -> MIME type.
+mime_guess = "2"
+# --- Databases (module 14 onward) ---
+# Async SQL toolkit: pool, query/query_as/FromRow, migrations, transactions and
+# compile-time checked queries. Pinned to Postgres + rustls (no OpenSSL needed).
+sqlx = { version = "0.9", default-features = false, features = ["runtime-tokio", "postgres", "macros", "migrate", "uuid", "chrono", "json", "derive"] }
+# Dates and times. sqlx maps TIMESTAMPTZ to chrono::DateTime<Utc>; "serde" lets
+# the value appear in JSON, "clock" gives Utc::now().
+chrono = { version = "0.4", default-features = false, features = ["serde", "clock"] }
+# `dyn Trait` with async methods (module 15's repository). Axum 0.8 itself no
+# longer needs this crate, but an object-safe async repository trait still does
+# until async fn in traits becomes dyn-compatible.
+async-trait = "0.1"
+
+# --- Build profiles for Module 40 (performance) ---
+# Custom profiles do NOT change `cargo build` / `cargo build --release`; you opt in with
+# `--profile perf` or `--profile profiling`.
+[profile.perf]
+# The "ship it" profile: slower to compile, fastest to run, smallest binary.
+inherits = "release"
+lto = "fat"          # optimise across crate boundaries (the whole dependency tree)
+codegen-units = 1    # one unit = more inlining; slower build
+panic = "abort"      # no unwinding tables; a panic ends the process (see the README for the trade-off)
+strip = "symbols"
+
+[profile.profiling]
+# Release speed WITH symbols, so flamegraphs show function names instead of addresses.
+inherits = "release"
+debug = true

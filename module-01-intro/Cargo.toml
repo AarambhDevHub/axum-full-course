@@ -1,0 +1,16 @@
+[package]
+name = "module-01-intro"
+version = "0.1.0"
+edition = "2021"
+description = "Axum Full Course, Module 01: Introduction and setup — the smallest server that can run"
+
+[dependencies]
+# The web framework this whole course is about (workspace-pinned to 0.8.9).
+axum = { workspace = true }
+# The async runtime: `#[tokio::main]` and `TcpListener` come from here.
+tokio = { workspace = true }
+# serde's derive macro gives our demo struct `#[derive(Serialize)]`
+# so it can be returned as typed JSON.
+serde = { workspace = true }
+# The JSON writer used by `axum::response::Json` behind the scenes.
+serde_json = { workspace = true }
