@@ -27,7 +27,16 @@ Auto-reload while you edit:
 
 ```bash
 cargo install --locked bacon
-bacon -p module-01-intro run
+bacon run -- -p module-01-intro
+```
+
+Everything after `--` is passed straight to `cargo run`, so `-p module-01-intro`
+picks the module. Prefer a shorter command? Go into the module folder and run
+plain `bacon run`:
+
+```bash
+cd module-01-intro
+bacon run
 ```
 
 ## Endpoints
@@ -78,7 +87,7 @@ curl -s http://127.0.0.1:4011/port
 curl -s http://127.0.0.1:3001/now
 ```
 
-With `bacon -p module-01-intro run`, edit the text inside `/now` and save —
+With `bacon run -- -p module-01-intro`, edit the text inside `/now` and save —
 the server rebuilds, restarts, and the response changes with no manual step.
 
 ## Common Mistakes
@@ -93,6 +102,9 @@ the server rebuilds, restarts, and the response changes with no manual step.
   startup**. The course uses `/{id}` everywhere (Module 04).
 - Setting `default-features = false` on axum without a list — `tokio`, `json`
   and friends are default features and the course assumes they are on.
+- Writing `bacon -p module-01-intro run` — bacon reads `-p` as its own option,
+  so cargo never receives it. Put cargo flags after `--`:
+  `bacon run -- -p module-01-intro`.
 
 ## Exercises
 
