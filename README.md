@@ -9,16 +9,17 @@ A beginner-to-advanced **Axum 0.8** course: 44 modules and 6 capstone projects. 
 small crate you can run, break and fix, with a README (endpoints, `curl` commands, common mistakes,
 exercises) and a heavily commented `src/main.rs`.
 
-> **Status — Module 01 is available now.**
+> **Status — Modules 01–02 are available now.**
 > The course is released one video at a time. A module is added to this repository when its YouTube
 > video goes live, so this repository contains exactly the modules you can watch today.
-> Modules 02–44 and the six capstone projects are **coming soon**.
+> Modules 03–44 and the six capstone projects are **coming soon**.
 
 ## Available Now
 
 | # | Module | Level | You learn | Port | Run |
 |---|--------|-------|-----------|------|-----|
 | 01 | [Introduction and Setup](./module-01-intro) | B | `axum::serve`, `#[tokio::main]`, first routes, port from env, auto-reload | 3001 | `cargo run -p module-01-intro` |
+| 02 | [Rust and HTTP Essentials](./module-02-rust-http-essentials) | B | async/Tokio, traits and generics, closures, `Arc`/`Mutex`, serde, `Result`/`?`, HTTP anatomy, REST, curl | 3002 | `cargo run -p module-02-rust-http-essentials` |
 
 ```bash
 # From the repository root:
@@ -27,6 +28,10 @@ cargo run -p module-01-intro
 # In another terminal:
 curl http://127.0.0.1:3001/
 curl -s http://127.0.0.1:3001/json
+
+# Module 02 runs on its own port, so both can run side by side:
+cargo run -p module-02-rust-http-essentials
+curl -s http://127.0.0.1:3002/async-basics
 ```
 
 Every module honours `AXUM_PORT`:
@@ -103,7 +108,7 @@ in this repository when its video is published; until then it is marked **Coming
 | # | Module | Level | You learn | Port | Status |
 |---|--------|-------|-----------|------|--------|
 | 01 | [Introduction and Setup](./module-01-intro) | B | `axum::serve`, `#[tokio::main]`, first routes, port from env, auto-reload | 3001 | **Available now** |
-| 02 | Rust and HTTP Essentials | B | async/Tokio, traits and generics, closures, `Arc`/`Mutex`, serde, `Result`/`?`, HTTP anatomy, REST, curl | 3002 | Coming soon |
+| 02 | [Rust and HTTP Essentials](./module-02-rust-http-essentials) | B | async/Tokio, traits and generics, closures, `Arc`/`Mutex`, serde, `Result`/`?`, HTTP anatomy, REST, curl | 3002 | **Available now** |
 | 03 | Handlers and First Responses | B | handlers, every built-in return type, `impl IntoResponse`, tuples, `NoContent`, redirects, health check | 3003 | Coming soon |
 | 04 | Routing | B | `route`, `{id}`, `{*rest}`, `nest`, `merge`, fallbacks, 404/405, `any`/`on`, HEAD, trailing slashes, services | 3004 | Coming soon |
 | 05 | Extractors | B | every built-in extractor, `Option`/`Result`, order, **custom extractors and rejections** | 3005 | Coming soon |
@@ -184,7 +189,7 @@ in this repository when its video is published; until then it is marked **Coming
 
 ## Requirements
 
-- Rust **1.80 or newer** for Module 01 (install with [rustup](https://rustup.rs)). Later parts use
+- Rust **1.80 or newer** for Modules 01–02 (install with [rustup](https://rustup.rs)). Later parts use
   `sqlx 0.9`, which needs Rust **1.94+**; each module's README states its requirement.
 - [curl](https://curl.se) for trying every endpoint (every module README gives the exact commands).
 - An editor with `rust-analyzer` for the exercises.
@@ -199,7 +204,7 @@ Optional, only for the database and capstone modules (14–17 and later):
 ```bash
 cargo check --workspace --all-targets      # everything currently published compiles
 cargo clippy --workspace --all-targets     # no warnings
-cargo test --workspace                     # Module 01 needs nothing external
+cargo test --workspace                     # Modules 01–02 need nothing external
 ```
 
 As more modules are published, some of their tests will use Postgres/Redis or external tools; the
@@ -243,7 +248,8 @@ Each capstone will be one crate, published after the modules it depends on.
 .
 ├── Cargo.toml            # workspace; only published modules are active members
 ├── Cargo.lock            # committed on purpose: everyone builds the verified versions
-├── module-01-intro/      # one crate per published module
+├── module-01-intro/                  # one crate per published module
+├── module-02-rust-http-essentials/   # each crate contains:
 │   ├── Cargo.toml
 │   ├── README.md         # endpoints, key concepts, Try It, mistakes, exercises
 │   └── src/main.rs       # LESSON banners + "What it does / Why it matters" comments
@@ -263,7 +269,7 @@ cp .env.example .env
 docker compose up -d postgres redis
 ```
 
-Module 01 needs neither. Database modules include their own `migrations/` folder and create their
+Modules 01–02 need neither. Database modules include their own `migrations/` folder and create their
 tables at startup, so a fresh Postgres is enough once those modules are published.
 
 ## Troubleshooting
@@ -272,7 +278,7 @@ tables at startup, so a fresh Postgres is enough once those modules are publishe
 - **A panic at startup mentioning an invalid route** — you used the pre-0.8 `/:id` syntax; write `/{id}`.
 - **Huge handler error messages** — add `#[axum::debug_handler]` (needs axum's `macros` feature; Module 09 enables it).
 - **`ConnectInfo` fails at runtime** — serve with `app.into_make_service_with_connect_info::<SocketAddr>()` (Module 05).
-- **Old compiler** — `rustc --version` must be 1.80 or newer for Module 01.
+- **Old compiler** — `rustc --version` must be 1.80 or newer for Modules 01–02.
 
 ## About this Axum Version
 

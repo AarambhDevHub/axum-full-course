@@ -115,4 +115,4 @@ the server rebuilds, restarts, and the response changes with no manual step.
 
 Previous: Start
 
-Next: Module 02 - Rust and HTTP Essentials (coming soon — published with its video)
+Next: [Module 02 - Rust and HTTP Essentials](../module-02-rust-http-essentials)

@@ -5,7 +5,7 @@ resolver = "2"
 # commit: `cargo run -p module-NN-name` then works for that module too.
 members = [
     "module-01-intro",
-    # "module-02-rust-http-essentials",
+    "module-02-rust-http-essentials",
     # "module-03-handlers-responses",
     # "module-04-routing",
     # "module-05-extractors",

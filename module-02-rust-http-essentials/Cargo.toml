@@ -1,0 +1,15 @@
+[package]
+name = "module-02-rust-http-essentials"
+version = "0.1.0"
+edition = "2021"
+description = "Axum Full Course, Module 02: Rust and HTTP essentials — async, Arc/Mutex, serde, Result, status codes"
+
+[dependencies]
+# The web framework (pinned to 0.8.9 across the workspace).
+axum = { workspace = true }
+# Async runtime: sleep, spawn, and JoinHandle come from Tokio in this module.
+tokio = { workspace = true }
+# serde derive for both Serialize and Deserialize in the round-trip lesson.
+serde = { workspace = true }
+# JSON parsing and pretty-printing for the round-trip lesson.
+serde_json = { workspace = true }
