@@ -1,0 +1,15 @@
+[package]
+name = "module-03-handlers-responses"
+version = "0.1.0"
+edition = "2021"
+description = "Axum Full Course, Module 03: handlers and first responses — text, HTML, JSON, status codes, redirects, health checks"
+
+[dependencies]
+# The web framework (workspace-pinned to 0.8.9).
+axum = { workspace = true }
+# Async runtime for #[tokio::main] and the TcpListener.
+tokio = { workspace = true }
+# serde derive for the typed JSON response.
+serde = { workspace = true }
+# JSON serializer used by axum::Json.
+serde_json = { workspace = true }

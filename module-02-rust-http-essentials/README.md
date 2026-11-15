@@ -115,4 +115,4 @@ curl -s $BASE/curl-cheatsheet
 
 Previous: [Module 01](../module-01-intro)
 
-Next: Module 03 - Handlers and First Responses (coming soon — published with its video)
+Next: [Module 03 - Handlers and First Responses](../module-03-handlers-responses)
