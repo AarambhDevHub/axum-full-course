@@ -106,87 +106,87 @@ in this repository when its video is published; until then it is marked **Coming
 
 ### Part 1 — Foundations
 
-| # | Module | Level | You learn | Port | Status |
-|---|--------|-------|-----------|------|--------|
-| 01 | [Introduction and Setup](./module-01-intro) · [Video](https://youtu.be/aBvvv44qPP0) | B | `axum::serve`, `#[tokio::main]`, first routes, port from env, auto-reload | 3001 | **Available now** |
-| 02 | [Rust and HTTP Essentials](./module-02-rust-http-essentials) · [Video](https://youtu.be/hNDYLzCXve8) | B | async/Tokio, traits and generics, closures, `Arc`/`Mutex`, serde, `Result`/`?`, HTTP anatomy, REST, curl | 3002 | **Available now** |
-| 03 | [Handlers and First Responses](./module-03-handlers-responses) · [Video](https://youtu.be/F6p-k35M_rI) | B | handlers, every built-in return type, `impl IntoResponse`, tuples, `NoContent`, redirects, health check | 3003 | **Available now** |
-| 04 | Routing | B | `route`, `{id}`, `{*rest}`, `nest`, `merge`, fallbacks, 404/405, `any`/`on`, HEAD, trailing slashes, services | 3004 | Coming soon |
-| 05 | Extractors | B | every built-in extractor, `Option`/`Result`, order, **custom extractors and rejections** | 3005 | Coming soon |
-| 06 | Responses in Depth | B | the response grammar, `IntoResponse`, `IntoResponseParts`, streaming, **custom response types and parts** | 3006 | Coming soon |
-| 07 | Shared State | B | `State`, locks vs atomics, `FromRef`, DI with trait objects, **state-aware extractor**, testing with fakes | 3007 | Coming soon |
-| 08 | Error Handling | B | `AppError`, `thiserror`, `anyhow`, `WithRejection`, problem JSON, panics, logging, **custom error types** | 3008 | Coming soon |
-| 09 | Validation and Custom Extractors | A | `validator`, `garde`, `ValidatedJson`, derive macros, body limits, `JsonOrForm`, `Cached`, reading a body twice | 3009 | Coming soon |
+| # | Module | Video | Level | You learn | Port | Status |
+|---|--------|-------|-------|-----------|------|--------|
+| 01 | [Introduction and Setup](./module-01-intro) | [link](https://youtu.be/aBvvv44qPP0) | B | `axum::serve`, `#[tokio::main]`, first routes, port from env, auto-reload | 3001 | **Available now** |
+| 02 | [Rust and HTTP Essentials](./module-02-rust-http-essentials) | [link](https://youtu.be/hNDYLzCXve8) | B | async/Tokio, traits and generics, closures, `Arc`/`Mutex`, serde, `Result`/`?`, HTTP anatomy, REST, curl | 3002 | **Available now** |
+| 03 | [Handlers and First Responses](./module-03-handlers-responses) | [link](https://youtu.be/F6p-k35M_rI) | B | handlers, every built-in return type, `impl IntoResponse`, tuples, `NoContent`, redirects, health check | 3003 | **Available now** |
+| 04 | Routing | — | B | `route`, `{id}`, `{*rest}`, `nest`, `merge`, fallbacks, 404/405, `any`/`on`, HEAD, trailing slashes, services | 3004 | Coming soon |
+| 05 | Extractors | — | B | every built-in extractor, `Option`/`Result`, order, **custom extractors and rejections** | 3005 | Coming soon |
+| 06 | Responses in Depth | — | B | the response grammar, `IntoResponse`, `IntoResponseParts`, streaming, **custom response types and parts** | 3006 | Coming soon |
+| 07 | Shared State | — | B | `State`, locks vs atomics, `FromRef`, DI with trait objects, **state-aware extractor**, testing with fakes | 3007 | Coming soon |
+| 08 | Error Handling | — | B | `AppError`, `thiserror`, `anyhow`, `WithRejection`, problem JSON, panics, logging, **custom error types** | 3008 | Coming soon |
+| 09 | Validation and Custom Extractors | — | A | `validator`, `garde`, `ValidatedJson`, derive macros, body limits, `JsonOrForm`, `Cached`, reading a body twice | 3009 | Coming soon |
 
 ### Part 2 — Middleware and Tower
 
-| # | Module | Level | You learn | Port | Status |
-|---|--------|-------|-----------|------|--------|
-| 10 | Tower Fundamentals | A | `Service` and `Layer` by hand, `ServiceBuilder`, the layer-order rule, `layer` vs `route_layer`, timeout / limit / load-shed, `oneshot` | 3010 | Coming soon |
-| 11 | Axum Middleware | A | `from_fn(_with_state)`, `from_extractor`, `map_request`/`map_response`, `option_layer`, reading bodies, **custom rate limiter** | 3011 | Coming soon |
-| 12 | The tower-http Toolbox | A | Trace, CORS, compression, request ids, timeout, body limit, CSRF, header validation, CatchPanic, NormalizePath | 3012 | Coming soon |
-| 13 | Static Files and Server-Rendered HTML | A | `ServeDir`/`ServeFile`, SPA fallback, rust-embed + ETag, Askama, Minijinja, Maud, post-redirect-get, HTMX | 3013 | Coming soon |
+| # | Module | Video | Level | You learn | Port | Status |
+|---|--------|-------|-------|-----------|------|--------|
+| 10 | Tower Fundamentals | — | A | `Service` and `Layer` by hand, `ServiceBuilder`, the layer-order rule, `layer` vs `route_layer`, timeout / limit / load-shed, `oneshot` | 3010 | Coming soon |
+| 11 | Axum Middleware | — | A | `from_fn(_with_state)`, `from_extractor`, `map_request`/`map_response`, `option_layer`, reading bodies, **custom rate limiter** | 3011 | Coming soon |
+| 12 | The tower-http Toolbox | — | A | Trace, CORS, compression, request ids, timeout, body limit, CSRF, header validation, CatchPanic, NormalizePath | 3012 | Coming soon |
+| 13 | Static Files and Server-Rendered HTML | — | A | `ServeDir`/`ServeFile`, SPA fallback, rust-embed + ETag, Askama, Minijinja, Maud, post-redirect-get, HTMX | 3013 | Coming soon |
 
 ### Part 3 — Data
 
-| # | Module | Level | You learn | Port | Status |
-|---|--------|-------|-----------|------|--------|
-| 14 | SQLx and Postgres | A | Pool, embedded migrations, `query_as`, `QueryBuilder`, ENUMs, transactions (`FOR UPDATE`), compile-time checked `query!`, error mapping | 3014 | Coming soon |
-| 15 | Architecture and the Repository Pattern | A | Layers, repository trait, `dyn` vs generics, contract test, error layering, `AppState` builder, `lib.rs` vs `main.rs` | 3015 | Coming soon |
-| 16 | ORMs and Other Databases | A | The same API on SQLx-SQLite, SeaORM, Diesel-async, tokio-postgres and MongoDB; how to choose | 3016 | Coming soon |
-| 17 | Caching and Rate Limiting | A | Redis and moka caches, HTTP caching/ETag, `tower_governor`, concurrency limits, graceful degradation | 3017 | Coming soon |
-| 18 | REST API Design | A | Offset and cursor pagination, filter/sort, JSON Merge Patch, idempotency keys, versioning, problem+json, `TypedPath` and `Resource` | 3018 | Coming soon |
+| # | Module | Video | Level | You learn | Port | Status |
+|---|--------|-------|-------|-----------|------|--------|
+| 14 | SQLx and Postgres | — | A | Pool, embedded migrations, `query_as`, `QueryBuilder`, ENUMs, transactions (`FOR UPDATE`), compile-time checked `query!`, error mapping | 3014 | Coming soon |
+| 15 | Architecture and the Repository Pattern | — | A | Layers, repository trait, `dyn` vs generics, contract test, error layering, `AppState` builder, `lib.rs` vs `main.rs` | 3015 | Coming soon |
+| 16 | ORMs and Other Databases | — | A | The same API on SQLx-SQLite, SeaORM, Diesel-async, tokio-postgres and MongoDB; how to choose | 3016 | Coming soon |
+| 17 | Caching and Rate Limiting | — | A | Redis and moka caches, HTTP caching/ETag, `tower_governor`, concurrency limits, graceful degradation | 3017 | Coming soon |
+| 18 | REST API Design | — | A | Offset and cursor pagination, filter/sort, JSON Merge Patch, idempotency keys, versioning, problem+json, `TypedPath` and `Resource` | 3018 | Coming soon |
 
 ### Part 4 — Authentication and Security
 
-| # | Module | Level | You learn | Port | Status |
-|---|--------|-------|-----------|------|--------|
-| 19 | Passwords and Users | A | argon2id and tuning, register/login, timing-safe failures, lockout, reset tokens, change password, `Secret` | 3019 | Coming soon |
-| 20 | JWT Authentication | A | jsonwebtoken 11, pinned algorithm, `kid` rotation, refresh rotation with reuse detection, blacklist, `AuthUser` and optional auth | 3020 | Coming soon |
-| 21 | Cookies and Sessions | A | CookieJar, signed and private cookies, tower-sessions 0.15, session-fixation defence, flash messages, **custom SQLx session store** | 3021 | Coming soon |
-| 22 | Authorization | A | 401/403/404, roles and permissions, guard layers, `Require<P>` extractor, API keys, ownership, tenant scoping | 3022 | Coming soon |
-| 23 | Security Hardening | A | security headers and CSP nonce, CORS allow-list, CSRF, limits, SQL injection, SSRF, secrets, self-audit, `cargo audit` | 3023 | Coming soon |
+| # | Module | Video | Level | You learn | Port | Status |
+|---|--------|-------|-------|-----------|------|--------|
+| 19 | Passwords and Users | — | A | argon2id and tuning, register/login, timing-safe failures, lockout, reset tokens, change password, `Secret` | 3019 | Coming soon |
+| 20 | JWT Authentication | — | A | jsonwebtoken 11, pinned algorithm, `kid` rotation, refresh rotation with reuse detection, blacklist, `AuthUser` and optional auth | 3020 | Coming soon |
+| 21 | Cookies and Sessions | — | A | CookieJar, signed and private cookies, tower-sessions 0.15, session-fixation defence, flash messages, **custom SQLx session store** | 3021 | Coming soon |
+| 22 | Authorization | — | A | 401/403/404, roles and permissions, guard layers, `Require<P>` extractor, API keys, ownership, tenant scoping | 3022 | Coming soon |
+| 23 | Security Hardening | — | A | security headers and CSP nonce, CORS allow-list, CSRF, limits, SQL injection, SSRF, secrets, self-audit, `cargo audit` | 3023 | Coming soon |
 
 ### Part 5 — Realtime, Streaming, Large Files, Media and Background Work
 
-| # | Module | Level | You learn | Port | Status |
-|---|--------|-------|-----------|------|--------|
-| 24 | WebSockets | A | `WebSocketUpgrade`, `Message`, split send/recv tasks, broadcast rooms, presence, subprotocols, origin check, limits, ping and idle timeout | 3024 | Coming soon |
-| 25 | Server-Sent Events | A | `Sse`, `Event`, `KeepAlive`, broadcast fan-out, `Last-Event-ID` replay, finite streams, disconnect detection, proxy buffering | 3025 | Coming soon |
-| 26 | Streaming Bodies | A | `Body::from_stream`, `into_data_stream` backpressure, `FileStream`, `AsyncReadBody`, `JsonLines`, `Protobuf`, streaming proxy | 3026 | Coming soon |
-| 27 | Uploads and Downloads | A | `Multipart`, size limits, sniffing, filename sanitising, `Storage` trait, safe download headers, batch uploads | 3027 | Coming soon |
-| 28 | Chunked and Resumable Uploads | X | upload sessions, per-chunk and whole-file checksums, resume, expiry sweeper, comparison with tus and S3 multipart | 3028 | Coming soon |
-| 29 | Range Requests and Chunked Downloads | A | `Range` parser, `206`/`416`, `If-Range`, `ETag`, a virtual 1 GB file, throttling, a parallel downloader | 3029 | Coming soon |
-| 30 | Streaming Video and Audio | A | what `<video>` sends, `ServeDir`, signed expiring URLs, audio tags with `lofty`, HLS with ffmpeg | 3030 | Coming soon |
-| 31 | Background Jobs and Messaging | X | tracked `tokio::spawn`, `mpsc` worker and backpressure, graceful shutdown, cron, `apalis`, AMQP with `lapin`, outbox | 3031 | Coming soon |
-| 32 | Calling Other Services and Proxying | A | `reqwest` timeouts, retries and `Retry-After`, signed webhooks, reverse proxy, forwarded headers | 3032 | Coming soon |
+| # | Module | Video | Level | You learn | Port | Status |
+|---|--------|-------|-------|-----------|------|--------|
+| 24 | WebSockets | — | A | `WebSocketUpgrade`, `Message`, split send/recv tasks, broadcast rooms, presence, subprotocols, origin check, limits, ping and idle timeout | 3024 | Coming soon |
+| 25 | Server-Sent Events | — | A | `Sse`, `Event`, `KeepAlive`, broadcast fan-out, `Last-Event-ID` replay, finite streams, disconnect detection, proxy buffering | 3025 | Coming soon |
+| 26 | Streaming Bodies | — | A | `Body::from_stream`, `into_data_stream` backpressure, `FileStream`, `AsyncReadBody`, `JsonLines`, `Protobuf`, streaming proxy | 3026 | Coming soon |
+| 27 | Uploads and Downloads | — | A | `Multipart`, size limits, sniffing, filename sanitising, `Storage` trait, safe download headers, batch uploads | 3027 | Coming soon |
+| 28 | Chunked and Resumable Uploads | — | X | upload sessions, per-chunk and whole-file checksums, resume, expiry sweeper, comparison with tus and S3 multipart | 3028 | Coming soon |
+| 29 | Range Requests and Chunked Downloads | — | A | `Range` parser, `206`/`416`, `If-Range`, `ETag`, a virtual 1 GB file, throttling, a parallel downloader | 3029 | Coming soon |
+| 30 | Streaming Video and Audio | — | A | what `<video>` sends, `ServeDir`, signed expiring URLs, audio tags with `lofty`, HLS with ffmpeg | 3030 | Coming soon |
+| 31 | Background Jobs and Messaging | — | X | tracked `tokio::spawn`, `mpsc` worker and backpressure, graceful shutdown, cron, `apalis`, AMQP with `lapin`, outbox | 3031 | Coming soon |
+| 32 | Calling Other Services and Proxying | — | A | `reqwest` timeouts, retries and `Retry-After`, signed webhooks, reverse proxy, forwarded headers | 3032 | Coming soon |
 
 ### Part 6 — API Styles
 
-| # | Module | Level | You learn | Port | Status |
-|---|--------|-------|-----------|------|--------|
-| 33 | OpenAPI Documentation | A | `utoipa` 6, `OpenApiRouter`, schemas and examples, security schemes, Swagger UI, Scalar, a committed contract and client generation | 3033 | Coming soon |
-| 34 | GraphQL | X | `async-graphql`, queries, mutations, subscriptions, DataLoader (N+1), guards, depth and complexity limits | 3034 | Coming soon |
-| 35 | gRPC with Tonic | X | protobuf, the four call types, interceptors, status codes, deadlines, gRPC and REST on one port, a client | 3035 | Coming soon |
+| # | Module | Video | Level | You learn | Port | Status |
+|---|--------|-------|-------|-----------|------|--------|
+| 33 | OpenAPI Documentation | — | A | `utoipa` 6, `OpenApiRouter`, schemas and examples, security schemes, Swagger UI, Scalar, a committed contract and client generation | 3033 | Coming soon |
+| 34 | GraphQL | — | X | `async-graphql`, queries, mutations, subscriptions, DataLoader (N+1), guards, depth and complexity limits | 3034 | Coming soon |
+| 35 | gRPC with Tonic | — | X | protobuf, the four call types, interceptors, status codes, deadlines, gRPC and REST on one port, a client | 3035 | Coming soon |
 
 ### Part 7 — Quality and Operations
 
-| # | Module | Level | You learn | Port | Status |
-|---|--------|-------|-----------|------|--------|
-| 36 | Testing | A | `oneshot` route tests, JSON and auth tests, real-listener WebSocket tests, per-test Postgres databases, `mockall`, `wiremock`, `rstest`, `insta` snapshots | 3036 | Coming soon |
-| 37 | Logging, Tracing and Metrics | A | `tracing` and JSON logs, `TraceLayer`, request ids, OpenTelemetry (OTLP, `traceparent`), Prometheus metrics, liveness vs readiness | 3037 | Coming soon |
-| 38 | Configuration and Project Structure | A | env vars, `dotenvy`, layered `config`, `clap`, secrets (`secrecy`, `*_FILE`), startup validation, feature flags, workspace layout | 3038 | Coming soon |
-| 39 | Async and Debugging Handlers | X | blocking vs async, `spawn_blocking`, cancellation, `select!`, backpressure, `Send` errors, `#[debug_handler]` | 3039 | Coming soon |
-| 40 | Performance | X | release and `perf` profiles, allocators, pool sizing, compression cost, HTTP/2, load testing, `criterion`, profiling | 3040 | Coming soon |
+| # | Module | Video | Level | You learn | Port | Status |
+|---|--------|-------|-------|-----------|------|--------|
+| 36 | Testing | — | A | `oneshot` route tests, JSON and auth tests, real-listener WebSocket tests, per-test Postgres databases, `mockall`, `wiremock`, `rstest`, `insta` snapshots | 3036 | Coming soon |
+| 37 | Logging, Tracing and Metrics | — | A | `tracing` and JSON logs, `TraceLayer`, request ids, OpenTelemetry (OTLP, `traceparent`), Prometheus metrics, liveness vs readiness | 3037 | Coming soon |
+| 38 | Configuration and Project Structure | — | A | env vars, `dotenvy`, layered `config`, `clap`, secrets (`secrecy`, `*_FILE`), startup validation, feature flags, workspace layout | 3038 | Coming soon |
+| 39 | Async and Debugging Handlers | — | X | blocking vs async, `spawn_blocking`, cancellation, `select!`, backpressure, `Send` errors, `#[debug_handler]` | 3039 | Coming soon |
+| 40 | Performance | — | X | release and `perf` profiles, allocators, pool sizing, compression cost, HTTP/2, load testing, `criterion`, profiling | 3040 | Coming soon |
 
 ### Part 8 — Operations and Internals
 
-| # | Module | Level | You learn | Port | Status |
-|---|--------|-------|-----------|------|--------|
-| 41 | `axum::serve` in Depth | X | `Listener`/`tap_io`, TCP options, `ConnectInfo`, graceful shutdown with a drain deadline, Unix sockets, Hyper directly, HTTP/2, socket handoff | 3041 | Coming soon |
-| 42 | TLS and HTTPS | A | `axum-server` + rustls, low-level rustls, ALPN, cert reload, HSTS, HTTP→HTTPS redirect, TLS behind a proxy | 3042 (HTTP redirect 3142) | Coming soon |
-| 43 | Docker and Containers | A | multi-stage builds, dependency caching, small images, health checks, compose with Postgres/Redis | 3043 | Coming soon |
-| 44 | Axum Internals and Custom Services | X | `Router` and `matchit`, the `Handler` trait, `IntoResponse`, bodies, hand-written `Service` and `Layer`, runtime-agnostic Router | 3044 | Coming soon |
+| # | Module | Video | Level | You learn | Port | Status |
+|---|--------|-------|-------|-----------|------|--------|
+| 41 | `axum::serve` in Depth | — | X | `Listener`/`tap_io`, TCP options, `ConnectInfo`, graceful shutdown with a drain deadline, Unix sockets, Hyper directly, HTTP/2, socket handoff | 3041 | Coming soon |
+| 42 | TLS and HTTPS | — | A | `axum-server` + rustls, low-level rustls, ALPN, cert reload, HSTS, HTTP→HTTPS redirect, TLS behind a proxy | 3042 (HTTP redirect 3142) | Coming soon |
+| 43 | Docker and Containers | — | A | multi-stage builds, dependency caching, small images, health checks, compose with Postgres/Redis | 3043 | Coming soon |
+| 44 | Axum Internals and Custom Services | — | X | `Router` and `matchit`, the `Handler` trait, `IntoResponse`, bodies, hand-written `Service` and `Layer`, runtime-agnostic Router | 3044 | Coming soon |
 
 ## Requirements
 
