@@ -14,13 +14,7 @@ exercises) and a heavily commented `src/main.rs`.
 > video goes live, so this repository contains exactly the modules you can watch today.
 > Modules 04–44 and the six capstone projects are **coming soon**.
 
-## Available Now
-
-| # | Module | Level | You learn | Port | Run |
-|---|--------|-------|-----------|------|-----|
-| 01 | [Introduction and Setup](./module-01-intro) | B | `axum::serve`, `#[tokio::main]`, first routes, port from env, auto-reload | 3001 | `cargo run -p module-01-intro` |
-| 02 | [Rust and HTTP Essentials](./module-02-rust-http-essentials) | B | async/Tokio, traits and generics, closures, `Arc`/`Mutex`, serde, `Result`/`?`, HTTP anatomy, REST, curl | 3002 | `cargo run -p module-02-rust-http-essentials` |
-| 03 | [Handlers and First Responses](./module-03-handlers-responses) | B | handlers, every built-in return type, `impl IntoResponse`, tuples, `NoContent`, redirects, health check | 3003 | `cargo run -p module-03-handlers-responses` |
+## Quick Start
 
 ```bash
 # From the repository root:
@@ -53,8 +47,9 @@ Every topic is taught in the same two steps:
 2. **Then build your own** — each module ends with the custom version: your own extractor, response
    type, response part, state-aware extractor, error type and validating extractor.
 
-The table below maps the full course. Only the modules listed under **Available Now** exist in this
-repository today; the rest are added as their videos are published.
+The table below maps the full course. Only the modules marked **Available now** in the
+[Course Roadmap](#course-roadmap) exist in this repository today; the rest are added as their videos
+are published.
 
 | You want to build… | Trait / tool | Module | Example in the code |
 |---|---|---|---|
@@ -107,13 +102,15 @@ The full curriculum is 44 modules in 8 parts. The detailed lesson plan lives in
 [`axum-course-curriculum.md`](./axum-course-curriculum.md). Each row below becomes a runnable crate
 in this repository when its video is published; until then it is marked **Coming soon**.
 
+**Watch the full course:** [YouTube playlist](https://www.youtube.com/playlist?list=PLJwm3eAnuoDM)
+
 ### Part 1 — Foundations
 
 | # | Module | Level | You learn | Port | Status |
 |---|--------|-------|-----------|------|--------|
-| 01 | [Introduction and Setup](./module-01-intro) | B | `axum::serve`, `#[tokio::main]`, first routes, port from env, auto-reload | 3001 | **Available now** |
-| 02 | [Rust and HTTP Essentials](./module-02-rust-http-essentials) | B | async/Tokio, traits and generics, closures, `Arc`/`Mutex`, serde, `Result`/`?`, HTTP anatomy, REST, curl | 3002 | **Available now** |
-| 03 | [Handlers and First Responses](./module-03-handlers-responses) | B | handlers, every built-in return type, `impl IntoResponse`, tuples, `NoContent`, redirects, health check | 3003 | **Available now** |
+| 01 | [Introduction and Setup](./module-01-intro) · [Video](https://youtu.be/aBvvv44qPP0) | B | `axum::serve`, `#[tokio::main]`, first routes, port from env, auto-reload | 3001 | **Available now** |
+| 02 | [Rust and HTTP Essentials](./module-02-rust-http-essentials) · [Video](https://youtu.be/hNDYLzCXve8) | B | async/Tokio, traits and generics, closures, `Arc`/`Mutex`, serde, `Result`/`?`, HTTP anatomy, REST, curl | 3002 | **Available now** |
+| 03 | [Handlers and First Responses](./module-03-handlers-responses) · [Video](https://youtu.be/F6p-k35M_rI) | B | handlers, every built-in return type, `impl IntoResponse`, tuples, `NoContent`, redirects, health check | 3003 | **Available now** |
 | 04 | Routing | B | `route`, `{id}`, `{*rest}`, `nest`, `merge`, fallbacks, 404/405, `any`/`on`, HEAD, trailing slashes, services | 3004 | Coming soon |
 | 05 | Extractors | B | every built-in extractor, `Option`/`Result`, order, **custom extractors and rejections** | 3005 | Coming soon |
 | 06 | Responses in Depth | B | the response grammar, `IntoResponse`, `IntoResponseParts`, streaming, **custom response types and parts** | 3006 | Coming soon |
