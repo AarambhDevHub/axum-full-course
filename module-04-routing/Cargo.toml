@@ -1,0 +1,17 @@
+[package]
+name = "module-04-routing"
+version = "0.1.0"
+edition = "2021"
+description = "Axum Full Course, Module 04: routing — method tables, path params and wildcards, nest/merge, fallbacks, versioning"
+
+[dependencies]
+# The web framework (workspace-pinned to 0.8.9).
+axum = { workspace = true }
+# Async runtime for #[tokio::main] and the TcpListener.
+tokio = { workspace = true }
+# JSON serialization for the fallback bodies (the `json!` macro).
+serde_json = { workspace = true }
+# `route_with_tsr` (trailing-slash redirect) lives in axum-extra's `routing` feature.
+axum-extra = { workspace = true }
+# `service_fn` turns an async fn into a tower Service for route_service/fallback_service.
+tower = { workspace = true }

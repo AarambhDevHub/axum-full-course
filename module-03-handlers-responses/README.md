@@ -124,4 +124,4 @@ curl -si $BASE/plain-bytes                       # bytes + explicit content-type
 
 Previous: [Module 02](../module-02-rust-http-essentials)
 
-Next: Module 04 - Routing (coming soon — published with its video)
+Next: [Module 04 - Routing](../module-04-routing)
