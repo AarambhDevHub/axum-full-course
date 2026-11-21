@@ -9,10 +9,10 @@ A beginner-to-advanced **Axum 0.8** course: 44 modules and 6 capstone projects. 
 small crate you can run, break and fix, with a README (endpoints, `curl` commands, common mistakes,
 exercises) and a heavily commented `src/main.rs`.
 
-> **Status — Modules 01–04 are available now.**
+> **Status — Modules 01–05 are available now.**
 > The course is released one video at a time. A module is added to this repository when its YouTube
 > video goes live, so this repository contains exactly the modules you can watch today.
-> Modules 05–44 and the six capstone projects are **coming soon**.
+> Modules 06–44 and the six capstone projects are **coming soon**.
 
 ## Quick Start
 
@@ -33,6 +33,9 @@ curl -s http://127.0.0.1:3003/health
 
 cargo run -p module-04-routing
 curl -s http://127.0.0.1:3004/items
+
+cargo run -p module-05-extractors
+curl -s http://127.0.0.1:3005/products/7
 ```
 
 Every module honours `AXUM_PORT`:
@@ -115,7 +118,7 @@ in this repository when its video is published; until then it is marked **Coming
 | 02 | [Rust and HTTP Essentials](./module-02-rust-http-essentials) | [link](https://youtu.be/hNDYLzCXve8) | B | async/Tokio, traits and generics, closures, `Arc`/`Mutex`, serde, `Result`/`?`, HTTP anatomy, REST, curl | 3002 | **Available now** |
 | 03 | [Handlers and First Responses](./module-03-handlers-responses) | [link](https://youtu.be/F6p-k35M_rI) | B | handlers, every built-in return type, `impl IntoResponse`, tuples, `NoContent`, redirects, health check | 3003 | **Available now** |
 | 04 | [Routing](./module-04-routing) | [link](https://youtu.be/kpo6hOY6CAU) | B | `route`, `{id}`, `{*rest}`, `nest`, `merge`, fallbacks, 404/405, `any`/`on`, HEAD, trailing slashes, services | 3004 | **Available now** |
-| 05 | Extractors | — | B | every built-in extractor, `Option`/`Result`, order, **custom extractors and rejections** | 3005 | Coming soon |
+| 05 | [Extractors](./module-05-extractors) | [link](https://youtu.be/UX3l7wU7IFA) | B | every built-in extractor, `Option`/`Result`, order, **custom extractors and rejections** | 3005 | **Available now** |
 | 06 | Responses in Depth | — | B | the response grammar, `IntoResponse`, `IntoResponseParts`, streaming, **custom response types and parts** | 3006 | Coming soon |
 | 07 | Shared State | — | B | `State`, locks vs atomics, `FromRef`, DI with trait objects, **state-aware extractor**, testing with fakes | 3007 | Coming soon |
 | 08 | Error Handling | — | B | `AppError`, `thiserror`, `anyhow`, `WithRejection`, problem JSON, panics, logging, **custom error types** | 3008 | Coming soon |
@@ -193,7 +196,7 @@ in this repository when its video is published; until then it is marked **Coming
 
 ## Requirements
 
-- Rust **1.80 or newer** for Modules 01–04 (install with [rustup](https://rustup.rs)). Later parts use
+- Rust **1.80 or newer** for Modules 01–05 (install with [rustup](https://rustup.rs)). Later parts use
   `sqlx 0.9`, which needs Rust **1.94+**; each module's README states its requirement.
 - [curl](https://curl.se) for trying every endpoint (every module README gives the exact commands).
 - An editor with `rust-analyzer` for the exercises.
@@ -208,7 +211,7 @@ Optional, only for the database and capstone modules (14–17 and later):
 ```bash
 cargo check --workspace --all-targets      # everything currently published compiles
 cargo clippy --workspace --all-targets     # no warnings
-cargo test --workspace                     # Modules 01–04 need nothing external
+cargo test --workspace                     # Modules 01–05 need nothing external
 ```
 
 As more modules are published, some of their tests will use Postgres/Redis or external tools; the
@@ -255,7 +258,8 @@ Each capstone will be one crate, published after the modules it depends on.
 ├── module-01-intro/                  # one crate per published module
 ├── module-02-rust-http-essentials/
 ├── module-03-handlers-responses/
-├── module-04-routing/                # each crate contains:
+├── module-04-routing/
+├── module-05-extractors/             # each crate contains:
 │   ├── Cargo.toml
 │   ├── README.md         # endpoints, key concepts, Try It, mistakes, exercises
 │   └── src/main.rs       # LESSON banners + "What it does / Why it matters" comments
@@ -275,7 +279,7 @@ cp .env.example .env
 docker compose up -d postgres redis
 ```
 
-Modules 01–04 need neither. Database modules include their own `migrations/` folder and create their
+Modules 01–05 need neither. Database modules include their own `migrations/` folder and create their
 tables at startup, so a fresh Postgres is enough once those modules are published.
 
 ## Troubleshooting
@@ -284,7 +288,7 @@ tables at startup, so a fresh Postgres is enough once those modules are publishe
 - **A panic at startup mentioning an invalid route** — you used the pre-0.8 `/:id` syntax; write `/{id}`.
 - **Huge handler error messages** — add `#[axum::debug_handler]` (needs axum's `macros` feature; Module 09 enables it).
 - **`ConnectInfo` fails at runtime** — serve with `app.into_make_service_with_connect_info::<SocketAddr>()` (Module 05).
-- **Old compiler** — `rustc --version` must be 1.80 or newer for Modules 01–04.
+- **Old compiler** — `rustc --version` must be 1.80 or newer for Modules 01–05.
 
 ## About this Axum Version
 

@@ -158,4 +158,4 @@ curl -s  $BASE/svc/known && curl -s $BASE/svc/anything
 
 Previous: [Module 03](../module-03-handlers-responses)
 
-Next: Module 05 - Extractors (coming soon — published with its video)
+Next: [Module 05 - Extractors](../module-05-extractors)

@@ -8,7 +8,7 @@ members = [
     "module-02-rust-http-essentials",
     "module-03-handlers-responses",
     "module-04-routing",
-    # "module-05-extractors",
+    "module-05-extractors",
     # "module-06-responses",
     # "module-07-state",
     # "module-08-errors",

@@ -1,0 +1,17 @@
+[package]
+name = "module-05-extractors"
+version = "0.1.0"
+edition = "2021"
+description = "Axum Full Course, Module 05: extractors — Path, Query, Json, Form, HeaderMap, Bytes, Option/Result forms, ConnectInfo"
+
+[dependencies]
+# The web framework (workspace-pinned to 0.8.9).
+axum = { workspace = true }
+# Async runtime for #[tokio::main] and the TcpListener.
+tokio = { workspace = true }
+# serde derive for every typed extractor target in this module.
+serde = { workspace = true }
+# JSON building for typed responses alongside the Json extractor.
+serde_json = { workspace = true }
+# `TypedHeader<UserAgent>` (feature `typed-header`) for strongly typed header parsing.
+axum-extra = { workspace = true }
