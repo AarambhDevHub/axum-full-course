@@ -215,4 +215,4 @@ curl -s  $BASE/custom/client
 
 Previous: [Module 04](../module-04-routing)
 
-Next: Module 06 - Responses in Depth (coming soon — published with its video)
+Next: [Module 06 - Responses in Depth](../module-06-responses)

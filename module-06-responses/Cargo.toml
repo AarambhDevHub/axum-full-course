@@ -1,0 +1,17 @@
+[package]
+name = "module-06-responses"
+version = "0.1.0"
+edition = "2021"
+description = "Axum Full Course, Module 06: responses in depth — custom IntoResponse types, header tuples, cookies, negotiation, downloads"
+
+[dependencies]
+# The web framework (workspace-pinned to 0.8.9).
+axum = { workspace = true }
+# Async runtime for #[tokio::main] and the TcpListener.
+tokio = { workspace = true }
+# serde derive for the JSON payloads produced by the custom response type.
+serde = { workspace = true }
+# JSON serialization behind Json<T>.
+serde_json = { workspace = true }
+# Stream combinators for the streaming-body lesson (`stream::unfold`).
+futures-util = { workspace = true }
